@@ -1,0 +1,107 @@
+{
+  "nodes": [
+    "Koramangala",
+    "BTM Layout",
+    "Indiranagar",
+    "MG Road",
+    "Electronic City",
+    "Silk Board",
+    "Whitefield",
+    "Marathahalli",
+    "HSR Layout",
+    "Jayanagar"
+  ],
+  "edges": [
+    {
+      "id": "Koramangala-BTM Layout",
+      "from": "Koramangala",
+      "to": "BTM Layout",
+      "base_weight": 3.0,
+      "congestion_value": 16.0
+    },
+    {
+      "id": "Koramangala-HSR Layout",
+      "from": "Koramangala",
+      "to": "HSR Layout",
+      "base_weight": 4.0,
+      "congestion_value": 15.0
+    },
+    {
+      "id": "Koramangala-Indiranagar",
+      "from": "Koramangala",
+      "to": "Indiranagar",
+      "base_weight": 6.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "Koramangala-Silk Board",
+      "from": "Koramangala",
+      "to": "Silk Board",
+      "base_weight": 5.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "BTM Layout-Jayanagar",
+      "from": "BTM Layout",
+      "to": "Jayanagar",
+      "base_weight": 4.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "BTM Layout-Silk Board",
+      "from": "BTM Layout",
+      "to": "Silk Board",
+      "base_weight": 2.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "Indiranagar-MG Road",
+      "from": "Indiranagar",
+      "to": "MG Road",
+      "base_weight": 4.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "Indiranagar-Marathahalli",
+      "from": "Indiranagar",
+      "to": "Marathahalli",
+      "base_weight": 5.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "MG Road-Jayanagar",
+      "from": "MG Road",
+      "to": "Jayanagar",
+      "base_weight": 5.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "Electronic City-Silk Board",
+      "from": "Electronic City",
+      "to": "Silk Board",
+      "base_weight": 6.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "Silk Board-HSR Layout",
+      "from": "Silk Board",
+      "to": "HSR Layout",
+      "base_weight": 3.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "Whitefield-Marathahalli",
+      "from": "Whitefield",
+      "to": "Marathahalli",
+      "base_weight": 4.0,
+      "congestion_value": 0.0
+    },
+    {
+      "id": "Marathahalli-HSR Layout",
+      "from": "Marathahalli",
+      "to": "HSR Layout",
+      "base_weight": 6.0,
+      "congestion_value": 9.0
+    }
+  ]
+}

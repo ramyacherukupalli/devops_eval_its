@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Traffic Congestion Advisory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">Smart Traffic Congestion Advisory</p>
+          <h1>Smart Traffic Routing with Real-Time Congestion</h1>
+          <p class="subtitle">
+            Report traffic, find optimal routes, and visualize congestion in real-time.
+          </p>
+        </div>
+      </header>
+
+      <main class="stack">
+        <section class="panel map-panel">
+          <div class="panel-header">
+            <h2>City Map</h2>
+            <div class="legend">
+              <span class="legend-dot low"></span>Low
+              <span class="legend-dot medium"></span>Medium
+              <span class="legend-dot high"></span>High
+            </div>
+          </div>
+          <div class="map-wrapper">
+            <button
+              id="fullscreen-toggle"
+              class="fullscreen-toggle"
+              type="button"
+              aria-label="Enter full screen"
+              title="Enter full screen"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M9 3H3v6h2V5h4V3zm12 0h-6v2h4v4h2V3zM5 15H3v6h6v-2H5v-4zm16 0h-2v4h-4v2h6v-6z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span class="sr-only">Enter full screen</span>
+            </button>
+            <div id="map"></div>
+          </div>
+        </section>
+
+        <section class="panel control-panel">
+          <div class="panel-header">
+            <h2>Route Planner</h2>
+            <p>Select source and destination to compute the least congested path.</p>
+          </div>
+          <form id="route-form" class="form">
+            <label>
+              Source
+              <select id="source-select" required></select>
+            </label>
+            <label>
+              Destination
+              <select id="destination-select" required></select>
+            </label>
+            <div class="button-row">
+              <button type="submit">Compute Route</button>
+              <button id="reset-view" type="button" class="reset-link">↻ Reset</button>
+            </div>
+          </form>
+          <div id="route-summary" class="summary">
+            <h3>Route Summary</h3>
+            <p class="summary-text" id="route-status">Select nodes to see the route.</p>
+            <div class="summary-details" id="route-details">
+              <div class="route-path" id="route-path">-</div>
+              <div class="summary-row">
+                <span class="summary-label">
+                  <span class="summary-icon">🚦</span> Traffic
+                  <span id="route-traffic" class="traffic-pill">-</span>
+                </span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">
+                  <span class="summary-icon">⏱️</span> Estimated Time
+                </span>
+                <span id="route-cost">-</span>
+              </div>
+              <div class="summary-row" id="route-avoided-row">
+                <span class="summary-label">
+                  <span class="summary-icon">⚠️</span> Avoided due to high traffic
+                </span>
+                <span id="route-avoided">-</span>
+              </div>
+              <div class="summary-note" id="route-tip">💡 Route optimized to avoid congestion.</div>
+              <div class="summary-note" id="route-map-hint">👉 Route highlighted on map in blue.</div>
+              <div class="summary-note warning" id="route-recalc">⚠️ Route recalculated due to traffic changes.</div>
+              <div class="summary-note" id="route-alt">💡 Alternate routes were evaluated based on congestion levels.</div>
+            </div>
+          </div>
+
+          <div class="panel-header">
+            <h2>Report Congestion</h2>
+            <p>Increase edge weight based on congestion severity.</p>
+          </div>
+          <form id="report-form" class="form">
+            <label>
+              From
+              <select id="report-from" required></select>
+            </label>
+            <label>
+              To
+              <select id="report-to" required></select>
+            </label>
+            <label>
+              Severity (0-20)
+              <input id="severity" type="range" min="0" max="20" value="0" />
+            </label>
+            <div class="severity-value">Severity: <span id="severity-value">0</span> (<span id="severity-level">LOW</span>)</div>
+            <div id="report-result" class="note"></div>
+            <button type="submit" class="secondary">Report Congestion</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
