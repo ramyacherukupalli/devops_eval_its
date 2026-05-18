@@ -5,6 +5,11 @@ from .services.graph_service import GraphStore
 api_bp = Blueprint("api", __name__)
 store = GraphStore()
 
+@api_bp.get("/")
+def home():
+    return jsonify({
+        "message": "ITS Project API Running Successfully"
+    })
 
 @api_bp.get("/graph")
 def get_graph():
